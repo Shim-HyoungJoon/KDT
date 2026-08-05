@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집 아카이브 - 소개 페이지</title>
+    <style>
+        @font-face {
+            font-family: 'GMarketSans';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GMarketSans';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GMarketSans';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'GMarketSans';
+            background-color: #f5f6ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .profile-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(71, 60, 231, 0.06);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 60px rgba(21, 14, 85, 0.12);
+        }
+
+        .profile-icon {
+            width: 90px;
+            height: 90px;
+            background-color: #d0d4fd;
+            border-radius: 50%;
+            margin: 0 auto 25px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s ease;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-icon span {
+            font-size: 40px;
+            animation: spin 1s linear 0s infinite normal none;
+        }
+
+        .profile-content h1 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .profile-content .divider {
+            border: none;
+            border-top: 2px dashed #0011ff;
+            margin-bottom: 20px;
+        }
+
+        .profile-content .intro-text {
+            font-size: 45px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="profile-card">
+
+        <div class="profile-icon">
+            <span>🍔</span>
+        </div>
+
+        <div class="profile-content">
+            <h1>맛집 소개에 오신걸 환영합니다.</h1>
+
+            <hr class="divider">
+
+            <p class="intro-text">
+                맛집은 항상 좋아!
+            </p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

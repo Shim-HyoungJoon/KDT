@@ -12,6 +12,7 @@ node_modules/
 __pycache__/
 **/__pycache__/
 *.py[cod]
+**/.git-history-backup/
 
 # Large local dataset
 online_retail_II.csv

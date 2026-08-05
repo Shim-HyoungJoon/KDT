@@ -1,0 +1,39 @@
+        @font-face {
+            font-family: 'GyeonggiMillenniumTitle';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Light.woff') format('woff');
+            font-weight: 300;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GyeonggiMillenniumTitle';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Medium.woff') format('woff');
+            font-weight: 500;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GyeonggiMillenniumTitle';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/Title_Bold.woff') format('woff');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'GyeonggiMillenniumTitle';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-3@1.0/TitleV.woff') format('woff');
+            font-weight: 800;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'GyeonggiMillenniumTitle';
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: deepskyblue;
+        }
