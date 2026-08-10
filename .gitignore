@@ -13,6 +13,7 @@ __pycache__/
 **/__pycache__/
 *.py[cod]
 **/.git-history-backup/
+blog/
 
 # Large local dataset
 online_retail_II.csv
