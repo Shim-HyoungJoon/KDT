@@ -19,3 +19,6 @@ blog/
 online_retail_II.csv
 hotel_bookings.csv
 shape/
+cifar-10-batches-py/
+
+cifar-10-python.tar.gz
