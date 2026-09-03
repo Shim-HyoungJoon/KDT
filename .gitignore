@@ -2,6 +2,7 @@
 .env
 **/.env
 
+
 # Local dependencies and build outputs
 venv/
 **/venv/
@@ -24,3 +25,7 @@ alien_vs_predator/
 
 cifar-10-python.tar.gz
 best_alien_predator_alexnet.pth
+VOCtest_06-Nov-2007.zip
+VOCtrainval_06-Nov-2007.zip
+VOCtest_06-Nov-2007
+VOCtrainval_06-Nov-2007
