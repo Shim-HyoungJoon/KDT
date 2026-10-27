@@ -43,3 +43,27 @@ maze_env.py에서 상태, 행동, 보상이 정해지는 방식을 보고 maze_g
 - 목표 앞에서 출발점 쪽으로 한 칸씩 평가가 퍼짐
 - 목표에서 멀수록, 목표에 도착하는 경험이 적을수록 판이 더 많이 필요 
 '''
+
+import random
+import time
+
+from maze_env import (
+    ACTION_NAMES,
+    DOWN,
+    LEFT,
+    MazeEnv,
+    NUM_ACTIONS,
+    RIGHT,
+    UP,
+)
+
+EPISODES = 500
+MAX_STEPS = 40
+ALPHA = 0.5
+GAMMA = 0.95
+EPSILON_START = 1.0
+EPSILON_MIN = 0.05
+EPSILON_DECAY = 0.992
+LOG_EVERY = 100
+EXPLAIN_EPISODE = 1
+RANDOM_SEED = 2026
