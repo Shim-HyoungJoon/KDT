@@ -4,6 +4,7 @@
 
 
 # Local dependencies and build outputs
+.venv
 venv/
 **/venv/
 node_modules/
