@@ -2,22 +2,31 @@
 # uvicorn 4_fastapi:app --reload --port 8000
 # post/pipeline 탭3 데이터를 받음
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from pydantic import BaseModel
+from graph import run_meeting_pipeline
+from db import init_db
 
-app = FastAPI(title="회의 관리 API")
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    init_db()
+    yield
+
+
+app = FastAPI(title="회의 관리 API", lifespan=lifespan)
 
 class MeetingRequest(BaseModel):
     title: str
     people: str
 
-class SummaryRequest(BaseModel):
+class Summaryrequest(BaseModel):
     text: str
 
-class TotalRequest(BaseModel):
+class PipelineRequest(BaseModel):
     title: str
     people: str
-    text: str
+    notes: str
 
 def make_meeting(title: str, people: str) -> str:
     title = (title or "").strip()
@@ -28,22 +37,27 @@ def make_meeting(title: str, people: str) -> str:
             f"- 제목: {title}\n"
             f"- 참가자: {','.join(names) or '(없음)'}")
 
-def summarize_meeting(text: str) -> str:
+def summarize(text: str) -> str:
     text = (text or "").strip()
     if not text:
         return "회의록이 비어 있습니다."
     lines = [ln for ln in text.splitlines() if ln.strip()]
     return f"발화 {len(lines)}줄 / 앞부분: {lines[0][:50] if lines else ''}"
 
-def total_pipeline()
-
 @app.post("/meeting")
 def create_meeting(request: MeetingRequest):
     return {"result": make_meeting(request.title, request.people)}
 
 @app.post("/summarize")
-def summarize_meeting(request: SummaryRequest):
-    return {"result": summarize_meeting(request.text)}
+def summarize_meeting(request: Summaryrequest):
+    return {"result": summarize(request.text)}
 
 @app.post("/pipeline")
-def 
+def run_pipeline(request: PipelineRequest):
+    return {
+        "result": run_meeting_pipeline(
+            title = request.title,
+            people = request.people,
+            notes = request.notes
+        )
+    }
