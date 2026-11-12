@@ -3,10 +3,10 @@
 # post/pipeline 탭3 데이터를 받음
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from graph import run_meeting_pipeline
-from db import init_db
+from db import (init_db, list_meetings, format_meetings_markdown, get_meeting)
 
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
@@ -61,3 +61,20 @@ def run_pipeline(request: PipelineRequest):
             notes = request.notes
         )
     }
+
+@app.get("/meetings")
+def meetings_list(limit: int=20):
+    rows = list_meetings(limit=limit)
+    return {
+        "items": rows,
+        "markdown": format_meetings_markdown(rows),
+        "result": format_meetings_markdown(rows),
+    }
+
+@app.get("/meetings/{meeting_id}")
+def meetings_detail(meeting_id: int):
+    row = get_meeting(meeting_id)
+    if row is None:
+        raise HTTPException(status_code=404, detail=f"회의 #{meeting_id} 없음")
+    detail = format_meetings_markdown(row)
+    return {"item": row, "markdown": detail, "result": detail}
